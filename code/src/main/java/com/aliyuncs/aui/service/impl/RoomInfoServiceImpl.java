@@ -380,7 +380,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoDao, RoomInfoEntity
             String[] s = livePushStreamEventRequestDto.getId().split("_");
             if (s.length >= 3) {
                 String meetingId = s[1];
-                roomInfoEntity = this.lambdaQuery().ge(RoomInfoEntity::getMeetingId, meetingId).one();
+                roomInfoEntity = this.lambdaQuery().eq(RoomInfoEntity::getMeetingId, meetingId).one();
             }
         } else {
             roomInfoEntity = this.getById(livePushStreamEventRequestDto.getId());
